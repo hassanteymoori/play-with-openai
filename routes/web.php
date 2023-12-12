@@ -15,21 +15,10 @@ use Illuminate\Support\Facades\Http;
 */
 
 Route::get('/', function () {
-    $response = Http::withToken(config('services.openai.secret'))
-        ->post(config('services.openai.url'),
-            [
-                "model" => "gpt-3.5-turbo",
-                "messages" => [
-                    [
-                        "role" => "system",
-                        "content" => "You are a poetic assistant, skilled in explaining complex programming concepts with creative flair."
-                    ],
-                    [
-                        "role" => "user",
-                        "content" => "Compose a poem that explains the concept of recursion in programming."
-                    ]
-                ]
-            ])->json('choices.0.message.content');
+
+    $chat = new \App\AI\Chat();
+
+    $response = $chat->send("Who is Taylor Otwell?");
 
     return view('welcome', compact('response'));
 
