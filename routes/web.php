@@ -31,6 +31,6 @@ Route::get('/', function () {
                 ]
             ])->json('choices.0.message.content');
 
-    return view('welcome.blade.php', compact('response'));
+    return view('welcome', compact('response'));
 
 });

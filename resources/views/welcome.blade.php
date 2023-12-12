@@ -9,7 +9,10 @@
     <script src="https://cdn.tailwindcss.com"></script>
 
 </head>
-<body class="">
+<body class="h-full grid place-items-center p-6">
+<div class="text-xs">
+    {!! nl2br($response) !!}
+</div>
 
 </body>
 </html>
