@@ -2,7 +2,7 @@
 
 namespace App\AI;
 
-use Illuminate\Support\Facades\Http;
+use OpenAI\Laravel\Facades\OpenAI;
 
 class Chat
 {
@@ -37,12 +37,10 @@ class Chat
             message: $message
         );
 
-        $response = Http::withToken(config('services.openai.secret'))
-            ->post(config('services.openai.url'),
-                [
-                    "model" => "gpt-3.5-turbo",
-                    "messages" => $this->getMessages()
-                ])->json('choices.0.message.content');
+        $response = OpenAI::chat()->create([
+            "model" => "gpt-3.5-turbo",
+            "messages" => $this->getMessages()
+        ])->choices[0]->message->content;
 
         if ($response) {
             $this->setMessage(

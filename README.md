@@ -44,10 +44,16 @@ These instructions will help you set up and run the project on your local machin
     php artisan key:generate
     ```
 
-6. Migrate the database:
+6. Execute the install command:
 
     ```bash
-    php artisan migrate
+    php artisan openai:install
+    ```
+   This will create a `config/openai.php` configuration file in your project, which you can modify to your needs using environment variables. Blank environment variables for the OpenAI API key and organization id are already appended to your `.env` file.
+    
+    ```bash
+    OPENAI_API_KEY=sk-...
+    OPENAI_ORGANIZATION=org-...
     ```
 
 7. Serve the application:
