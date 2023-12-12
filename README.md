@@ -61,8 +61,16 @@ These instructions will help you set up and run the project on your local machin
     ```bash
     php artisan serve
     ```
+    The application should now be accessible at [http://localhost:8000](http://localhost:8000).
 
-The application should now be accessible at [http://localhost:8000](http://localhost:8000).
+
+
+8. Run the chat through cmd:
+
+    ```bash
+    php artisan chat
+    ```
+   
 
 ## Usage
 
