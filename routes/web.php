@@ -29,7 +29,8 @@ Route::get('/', function () {
                         "content" => "Compose a poem that explains the concept of recursion in programming."
                     ]
                 ]
-            ])->json();
+            ])->json('choices.0.message.content');
 
-    dd($response);
+    return view('welcome.blade.php', compact('response'));
+
 });
