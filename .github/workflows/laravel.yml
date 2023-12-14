@@ -43,4 +43,4 @@ jobs:
         run: vendor/bin/phpunit
 
       - name: Execute styling psr12 pist
-        run: vendor/bin/pist
+        run: ./vendor/bin/pint
