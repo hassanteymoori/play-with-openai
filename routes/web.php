@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Http;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,7 +17,7 @@ Route::get('/', function () {
 
     $chat = new \App\AI\Chat();
 
-    $response = $chat->send("Who is Taylor Otwell?");
+    $response = $chat->send('Who is Taylor Otwell?');
 
     return view('welcome', compact('response'));
 

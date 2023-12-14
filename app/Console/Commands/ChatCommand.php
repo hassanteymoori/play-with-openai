@@ -4,8 +4,10 @@ namespace App\Console\Commands;
 
 use App\AI\Chat;
 use Illuminate\Console\Command;
-use function Laravel\Prompts\{text, confirm, info, spin, note};
 
+use function Laravel\Prompts\info;
+use function Laravel\Prompts\spin;
+use function Laravel\Prompts\text;
 
 class ChatCommand extends Command
 {
@@ -23,7 +25,6 @@ class ChatCommand extends Command
      */
     protected $description = 'Start a chat with OpenAI';
 
-
     /**
      * Execute the console command.
      */
@@ -32,19 +33,18 @@ class ChatCommand extends Command
         $chat = new Chat();
         while ($question =
             text(
-                label: "Twin-gpt",
-                placeholder: "Ask me something...",
+                label: 'Twin-gpt',
+                placeholder: 'Ask me something...',
                 required: true,
-                validate: fn(string $value) => match (true) {
+                validate: fn (string $value) => match (true) {
                     strlen($value) < 3 => 'The string must be at least 3 characters.',
                     default => null
                 }
             )
         ) {
-            $response = spin(fn() => $chat->send($question), "sending request ...");
+            $response = spin(fn () => $chat->send($question), 'sending request ...');
             info($response);
         }
-
 
     }
 }

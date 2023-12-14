@@ -8,10 +8,10 @@ class Chat
 {
     private array $messages = [];
 
-    public function __construct(string $systemMessage = "A general purpose assistant")
+    public function __construct(string $systemMessage = 'A general purpose assistant')
     {
         $this->setMessage(
-            role: "system",
+            role: 'system',
             message: $systemMessage
         );
     }
@@ -19,11 +19,10 @@ class Chat
     protected function setMessage(string $role, string $message): void
     {
         $this->messages[] = [
-            "role" => $role,
-            "content" => $message
+            'role' => $role,
+            'content' => $message,
         ];
     }
-
 
     public function getMessages(): array
     {
@@ -33,18 +32,18 @@ class Chat
     public function send(string $message): ?string
     {
         $this->setMessage(
-            role: "user",
+            role: 'user',
             message: $message
         );
 
         $response = OpenAI::chat()->create([
-            "model" => "gpt-3.5-turbo",
-            "messages" => $this->getMessages()
+            'model' => 'gpt-3.5-turbo',
+            'messages' => $this->getMessages(),
         ])->choices[0]->message->content;
 
         if ($response) {
             $this->setMessage(
-                role: "assistant",
+                role: 'assistant',
                 message: $response
             );
         }
@@ -56,6 +55,4 @@ class Chat
     {
         return $this->send($message);
     }
-
-
 }
