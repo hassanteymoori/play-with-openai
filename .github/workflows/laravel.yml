@@ -41,3 +41,6 @@ jobs:
           DB_CONNECTION: sqlite
           DB_DATABASE: database/database.sqlite
         run: vendor/bin/phpunit
+
+      - name: Execute styling psr12 pist
+        run: vendor/bin/pist
