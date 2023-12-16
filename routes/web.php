@@ -15,10 +15,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
 
-    $chat = new \App\AI\Chat();
+    //    $chat = new \App\AI\Chat();
+    //    $response = $chat->send('Tell me a joke!');
 
-    $response = $chat->send('Who is Taylor Otwell?');
-
-    return view('welcome', compact('response'));
-
+    return view('roast');
 });
+
+Route::get('/roast', function () {
+
+})->name('roast');

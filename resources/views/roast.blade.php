@@ -10,9 +10,17 @@
 
 </head>
 <body class="h-full grid place-items-center p-6">
-<div class="text-xs">
-    {!! nl2br($response) !!}
-</div>
+
+<form action="{{ route('roast') }}" class="w-full lg:max-w-md lg:mx-auto">
+    <h2 class="pb-2">Write for me to roast it for you :)</h2>
+    <div class="flex gap-2">
+        <input type="text" placeholder="what do you want me to roast?"
+               required
+               class="rounded border p-2 flex-1">
+        <button class="rounded p-2 border bg-gray-200 hover:bg-blue-500 hover:text-white">Roast</button>
+
+    </div>
+</form>
 
 </body>
 </html>
