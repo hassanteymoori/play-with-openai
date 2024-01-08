@@ -1,7 +1,7 @@
 #             
 
 <div align="center">
-<h1 align="center">Twin-GPT with Laravel and PHP</h1>
+<h1 align="center">play-with-openai</h1>
 <h3 align="center">A minimal project to play with OpenAI api. </h3>
 
 ![version](https://img.shields.io/badge/version-0.0.1-blue)
@@ -25,13 +25,13 @@ These instructions will help you set up and run the project on your local machin
 1. Clone the repository:
 
     ```bash
-    https://github.com/hassanteymoori/twin-gpt
+    https://github.com/hassanteymoori/play-with-openai
     ```
 
 2. Navigate to the project directory:
 
     ```bash
-    cd twin-gpt
+    cd play-with-openai
     ```
 
 3. Install dependencies:
